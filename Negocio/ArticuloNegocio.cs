@@ -8,7 +8,7 @@ using Acceso_Datos;
 
 namespace Negocio
 {
-    internal class ArticuloNegocio
+    public class ArticuloNegocio
     {
 
         public List<Articulo> listar()
@@ -39,6 +39,7 @@ namespace Negocio
                 {
                     Articulo aux = new Articulo();
                     aux.IdArticulo = datos.Lector["Id"] is DBNull ? 0 : (int)datos.Lector["Id"];
+                    aux.Codigo = datos.Lector["Codigo"] is DBNull ? "" : (string)datos.Lector["Codigo"];
                     aux.Nombre = datos.Lector["Nombre"] is DBNull ? "" : (string)datos.Lector["Nombre"];
                     aux.Descripcion = datos.Lector["Descripcion"] is DBNull ? "" : (string)datos.Lector["Descripcion"];
 
@@ -49,6 +50,8 @@ namespace Negocio
                     aux.Categoria = new Categoria();
                     aux.Categoria.IdCategoria = datos.Lector["IdCategoria"] is DBNull ? 0 : (int)datos.Lector["IdCategoria"];
                     aux.Categoria.Descripcion = datos.Lector["Categoria"] is DBNull ? "": (string)datos.Lector["Categoria"];
+
+                    aux.ImagenUrl = datos.Lector["ImagenUrl"] is DBNull ? "" : (string)datos.Lector["ImagenUrl"];
 
                     lista.Add(aux);
                 }
