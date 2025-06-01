@@ -6,15 +6,15 @@ using System.Threading.Tasks;
 
 namespace Dominio
 {
-    internal class Articulo
+    public class Articulo
     {
-        private int IdArticulo { set; get; }
-        private string Codigo { set; get; }
-        private string Nombre { set; get; }
-        private string Descripcion { set; get; }
-        private Marca Marca { set; get; }
-        private Categoria Categoria { set; get; }
-        private string ImagenUrl { set; get; }
-        private decimal Precio { set; get; }
+        public int IdArticulo { set; get; }
+        public string Codigo { set; get; }
+        public string Nombre { set; get; }
+        public string Descripcion { set; get; }
+        public Marca Marca { set; get; }
+        public Categoria Categoria { set; get; }
+        public string ImagenUrl { set; get; }
+        public decimal Precio { set; get; }
     }
 }

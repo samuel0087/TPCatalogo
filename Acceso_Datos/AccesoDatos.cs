@@ -14,7 +14,7 @@ namespace Acceso_Datos
         private SqlCommand comando;
         private SqlDataReader lector;
 
-        private SqlDataReader Lector
+        public SqlDataReader Lector
         {
             get { return lector; }
         }
@@ -54,10 +54,6 @@ namespace Acceso_Datos
 
                 throw ex;
             }
-            finally
-            {
-                cerrarConexion();
-            }
         }
 
         public void ejecitarAccion()
@@ -74,10 +70,6 @@ namespace Acceso_Datos
             {
 
                 throw;
-            }
-            finally 
-            { 
-                cerrarConexion(); 
             }
         }
 
