@@ -75,5 +75,23 @@ namespace CatalogoWinformApp
                 MessageBox.Show("Error al seleccionar Articulo.");
             }
         }
+
+        private void btnDetalle_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                if (dgvArticulos.CurrentRow != null)
+                {
+                    Articulo seleccionado = (Articulo)dgvArticulos.CurrentRow.DataBoundItem;
+                    DetalleArticulo detalles = new DetalleArticulo(seleccionado);
+                    detalles.ShowDialog();
+                }
+            }
+            catch (Exception)
+            {
+                MessageBox.Show("Error al seleccionar Articulo.");
+            }
+
+        }
     }
 }

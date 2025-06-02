@@ -31,6 +31,7 @@
             this.lblTitlo = new System.Windows.Forms.Label();
             this.dgvArticulos = new System.Windows.Forms.DataGridView();
             this.pbxImagen = new System.Windows.Forms.PictureBox();
+            this.btnDetalle = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.dgvArticulos)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pbxImagen)).BeginInit();
             this.SuspendLayout();
@@ -65,11 +66,22 @@
             this.pbxImagen.TabIndex = 2;
             this.pbxImagen.TabStop = false;
             // 
+            // btnDetalle
+            // 
+            this.btnDetalle.Location = new System.Drawing.Point(12, 298);
+            this.btnDetalle.Name = "btnDetalle";
+            this.btnDetalle.Size = new System.Drawing.Size(75, 23);
+            this.btnDetalle.TabIndex = 3;
+            this.btnDetalle.Text = "Detalle";
+            this.btnDetalle.UseVisualStyleBackColor = true;
+            this.btnDetalle.Click += new System.EventHandler(this.btnDetalle_Click);
+            // 
             // Catalogo
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(800, 450);
+            this.Controls.Add(this.btnDetalle);
             this.Controls.Add(this.pbxImagen);
             this.Controls.Add(this.dgvArticulos);
             this.Controls.Add(this.lblTitlo);
@@ -89,5 +101,6 @@
         private System.Windows.Forms.Label lblTitlo;
         private System.Windows.Forms.DataGridView dgvArticulos;
         private System.Windows.Forms.PictureBox pbxImagen;
+        private System.Windows.Forms.Button btnDetalle;
     }
 }
