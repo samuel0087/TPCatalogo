@@ -52,6 +52,7 @@ namespace Negocio
                     aux.Categoria.Descripcion = datos.Lector["Categoria"] is DBNull ? "": (string)datos.Lector["Categoria"];
 
                     aux.ImagenUrl = datos.Lector["ImagenUrl"] is DBNull ? "" : (string)datos.Lector["ImagenUrl"];
+                    aux.Precio = datos.Lector["Precio"] is DBNull ? 0 : (decimal)datos.Lector["Precio"];
 
                     lista.Add(aux);
                 }

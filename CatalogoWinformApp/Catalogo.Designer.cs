@@ -39,10 +39,9 @@
             // 
             this.lblTitlo.AutoSize = true;
             this.lblTitlo.Font = new System.Drawing.Font("Microsoft Sans Serif", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblTitlo.Location = new System.Drawing.Point(407, 11);
-            this.lblTitlo.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.lblTitlo.Location = new System.Drawing.Point(305, 9);
             this.lblTitlo.Name = "lblTitlo";
-            this.lblTitlo.Size = new System.Drawing.Size(195, 36);
+            this.lblTitlo.Size = new System.Drawing.Size(157, 29);
             this.lblTitlo.TabIndex = 0;
             this.lblTitlo.Text = "CatalogoAPP";
             this.lblTitlo.Click += new System.EventHandler(this.label1_Click);
@@ -50,31 +49,30 @@
             // dgvArticulos
             // 
             this.dgvArticulos.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dgvArticulos.Location = new System.Drawing.Point(16, 73);
-            this.dgvArticulos.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.dgvArticulos.Location = new System.Drawing.Point(12, 59);
             this.dgvArticulos.Name = "dgvArticulos";
             this.dgvArticulos.RowHeadersWidth = 51;
-            this.dgvArticulos.Size = new System.Drawing.Size(600, 273);
+            this.dgvArticulos.Size = new System.Drawing.Size(450, 222);
             this.dgvArticulos.TabIndex = 1;
+            this.dgvArticulos.SelectionChanged += new System.EventHandler(this.dgvArticulos_SelectionChanged);
             // 
             // pbxImagen
             // 
-            this.pbxImagen.Location = new System.Drawing.Point(691, 73);
-            this.pbxImagen.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.pbxImagen.Location = new System.Drawing.Point(518, 59);
             this.pbxImagen.Name = "pbxImagen";
-            this.pbxImagen.Size = new System.Drawing.Size(341, 273);
+            this.pbxImagen.Size = new System.Drawing.Size(256, 222);
+            this.pbxImagen.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
             this.pbxImagen.TabIndex = 2;
             this.pbxImagen.TabStop = false;
             // 
             // Catalogo
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1067, 554);
+            this.ClientSize = new System.Drawing.Size(800, 450);
             this.Controls.Add(this.pbxImagen);
             this.Controls.Add(this.dgvArticulos);
             this.Controls.Add(this.lblTitlo);
-            this.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.Name = "Catalogo";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Catalogo";
