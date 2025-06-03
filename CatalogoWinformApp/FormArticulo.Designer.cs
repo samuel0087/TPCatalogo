@@ -220,6 +220,7 @@
             this.Controls.Add(this.lblCodigo);
             this.Name = "FormArticulo";
             this.Text = "FormArticulo";
+            this.Load += new System.EventHandler(this.FormArticulo_Load);
             ((System.ComponentModel.ISupportInitialize)(this.pbxImagen)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();

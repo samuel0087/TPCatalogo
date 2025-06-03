@@ -14,7 +14,7 @@ namespace Negocio
         {
 			AccesoDatos datos = new AccesoDatos();
 			List<Categoria> listado = new List<Categoria>();
-			string query = "";
+			string query = "Select Id, Descripcion From Categorias";
 
 			try
 			{
