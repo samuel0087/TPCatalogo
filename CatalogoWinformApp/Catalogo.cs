@@ -93,5 +93,11 @@ namespace CatalogoWinformApp
             }
 
         }
+
+        private void btnAgregar_Click(object sender, EventArgs e)
+        {
+            FormArticulo formularioArticulo = new FormArticulo();
+            formularioArticulo.ShowDialog();
+        }
     }
 }
