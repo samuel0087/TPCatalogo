@@ -81,10 +81,8 @@ namespace Acceso_Datos
                 {
                     lector.Close();
                 }
-                if (conexion != null && conexion.State != ConnectionState.Closed)
-                {
-                    conexion.Close();
-                }
+
+                conexion.Close();
             }
             catch (Exception ex)
             {

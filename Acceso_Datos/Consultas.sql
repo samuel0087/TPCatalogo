@@ -14,3 +14,10 @@ A.Precio
 From Articulos A
 Inner Join Categorias C On C.Id = A.IdCategoria
 Inner Join Marcas M On M.Id = A.IdMarca
+
+/*Listar marcas*/
+
+Select
+Id,
+Descripcion
+From Marcas
