@@ -56,7 +56,7 @@ namespace Acceso_Datos
             }
         }
 
-        public void ejecitarAccion()
+        public void ejecutarAccion()
         {
             comando.Connection = conexion;
 
