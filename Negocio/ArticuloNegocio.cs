@@ -70,6 +70,36 @@ namespace Negocio
             }
         }
 
+        public void agregar(Articulo articulo)
+        {
+            AccesoDatos datos = new AccesoDatos();
+            string query = @"Insert Into ARTICULOS (Codigo, Nombre, Descripcion, IdMarca, IdCategoria, ImagenUrl, Precio) 
+                            Values(@Codigo, @Nombre, @Descripcion, @IdMarca, @IdCategoria,@ImagenUrl, @Precio)";
+
+            try
+            {
+                datos.setearConsulta(query);
+                datos.setearParametro("@Codigo", articulo.Codigo);
+                datos.setearParametro("@Nombre", articulo.Nombre);
+                datos.setearParametro("@Descripcion", articulo.Descripcion);
+                datos.setearParametro("@IdMarca", articulo.Marca.IdMarca);
+                datos.setearParametro("@IdCategoria", articulo.Categoria.IdCategoria);
+                datos.setearParametro("@ImagenUrl", articulo.ImagenUrl);
+                datos.setearParametro("@Precio", articulo.Precio);
+                datos.ejecutarAccion();
+
+            }
+            catch (Exception ex)
+            {
+
+                throw ex;
+            }
+            finally
+            {
+                datos.cerrarConexion();
+            }
+        }
+
         public void eliminar(int Id)
         {
             AccesoDatos datos = new AccesoDatos();
