@@ -99,5 +99,24 @@ namespace CatalogoWinformApp
             FormArticulo formularioArticulo = new FormArticulo();
             formularioArticulo.ShowDialog();
         }
+
+        private void btnModificar_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                if (dgvArticulos.CurrentRow != null)
+                {
+                    Articulo seleccionado = (Articulo)dgvArticulos.CurrentRow.DataBoundItem;
+                    FormArticulo form = new FormArticulo(seleccionado);
+                    form.ShowDialog();
+                }
+            }
+            catch (Exception)
+            {
+                MessageBox.Show("Error al seleccionar Articulo.");
+            }
+        }
+
+
     }
 }
