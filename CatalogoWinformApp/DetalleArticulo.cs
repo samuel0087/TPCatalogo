@@ -42,7 +42,7 @@ namespace CatalogoWinformApp
             {
                 pbxImagen.Load(imagen);
             }
-            catch (Exception ex)
+            catch (Exception)
             {
 
                 //pbxImagen.Load(ex.ToString());

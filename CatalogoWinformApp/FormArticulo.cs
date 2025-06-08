@@ -1,5 +1,4 @@
-﻿using Negocio;
-using System;
+﻿using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -82,7 +81,7 @@ namespace CatalogoWinformApp
             {
                 pbxImagen.Load(imagen);
             }
-            catch (Exception ex)
+            catch (Exception)
             {
 
                 //pbxImagen.Load(ex.ToString());
@@ -93,6 +92,45 @@ namespace CatalogoWinformApp
         private void txtImagen_Leave(object sender, EventArgs e)
         {
             cargarImagen(txtImagen.Text);
+        }
+
+        private void btnGuardar_Click(object sender, EventArgs e)
+        {
+            ArticuloNegocio negocio = new ArticuloNegocio();
+
+            try
+            {
+                if (articulo == null)
+                {
+                    articulo = new Articulo();
+                }
+
+                articulo.Codigo = txtCodigo.Text;
+                articulo.Nombre = txtNombre.Text;
+                articulo.Descripcion = txtDescripcion.Text;
+                articulo.ImagenUrl = txtImagen.Text;
+                articulo.Categoria = (Categoria)cbxCategoria.SelectedItem;
+                articulo.Marca = (Marca)cbxMarca.SelectedItem;
+                articulo.Precio = Decimal.Parse(txtPrecio.Text);
+
+                if (articulo.IdArticulo != 0)
+                {
+                    negocio.modificar(articulo);
+                    MessageBox.Show("Modificado exitosamente");
+                }
+                else
+                {
+                    negocio.agregar(articulo);
+                    MessageBox.Show("Agregado exitosamente");
+                }
+                Close();
+            }
+            catch (Exception)
+            {
+
+                MessageBox.Show("Error al guardar, intentelo mas tarde");
+                Close();
+            }
         }
     }
 }

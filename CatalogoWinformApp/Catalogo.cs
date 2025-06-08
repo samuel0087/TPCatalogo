@@ -41,7 +41,7 @@ namespace CatalogoWinformApp
             {
                 pbxImagen.Load(imagen);
             }
-            catch (Exception ex)
+            catch (Exception)
             {
 
                 //pbxImagen.Load(ex.ToString());
@@ -98,6 +98,7 @@ namespace CatalogoWinformApp
         {
             FormArticulo formularioArticulo = new FormArticulo();
             formularioArticulo.ShowDialog();
+            cargar();
         }
 
         private void btnModificar_Click(object sender, EventArgs e)
@@ -109,6 +110,7 @@ namespace CatalogoWinformApp
                     Articulo seleccionado = (Articulo)dgvArticulos.CurrentRow.DataBoundItem;
                     FormArticulo form = new FormArticulo(seleccionado);
                     form.ShowDialog();
+                    cargar();
                 }
             }
             catch (Exception)
@@ -117,6 +119,28 @@ namespace CatalogoWinformApp
             }
         }
 
+        private void btnEliminar_Click(object sender, EventArgs e)
+        {
+            ArticuloNegocio negocio = new ArticuloNegocio();
+            Articulo seleccionado;
 
+            try
+            {
+                DialogResult resultado = MessageBox.Show("¿Seguro quieres eliminar este articulo?", "Eliminando", MessageBoxButtons.YesNo, MessageBoxIcon.Warning);
+
+                if(DialogResult.Yes == resultado)
+                {
+                    seleccionado = (Articulo)dgvArticulos.CurrentRow.DataBoundItem;
+                    negocio.eliminar(seleccionado.IdArticulo);
+                    MessageBox.Show("Eliminado correctamete");
+                    cargar();
+                }
+            }
+            catch (Exception)
+            {
+
+                throw;
+            }
+        }
     }
 }
