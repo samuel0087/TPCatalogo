@@ -23,6 +23,7 @@ namespace CatalogoWinformApp
         private void Catalogo_load(object sender, EventArgs e)
         {
             cargar();
+            ocultarCamposBusqueda();
         }
 
         private void cargar()
@@ -140,6 +141,91 @@ namespace CatalogoWinformApp
             {
 
                 throw;
+            }
+        }
+
+        private void ocultarCamposBusqueda()
+        {
+            lblCampo.Visible = false;
+            dboCampo.Visible = false;
+            lblCriterio.Visible = false;
+            dboCriterio.Visible = false;
+            btnBuscar.Visible = false;
+
+        }
+
+        private void mostrarCamposBusqueda()
+        {
+            lblCampo.Visible = true;
+            dboCampo.Visible = true;
+            lblCriterio.Visible = true;
+            dboCriterio.Visible = true;
+            btnBuscar.Visible = true;
+
+
+            dboCampo.Items.Add("Codigo");
+            dboCampo.Items.Add("Nombre");
+            dboCampo.Items.Add("Descripción");
+            dboCampo.Items.Add("Precio");
+            dboCampo.Items.Add("Marca");
+            dboCampo.Items.Add("Categoria");
+
+            dboCriterio.Enabled = false;
+        }
+
+
+
+        private void chbAvanzado_CheckedChanged(object sender, EventArgs e)
+        {
+            if (chbAvanzado.Checked)
+            {
+                mostrarCamposBusqueda();
+            }
+            else
+            {
+                ocultarCamposBusqueda();
+                cargar() ;
+            }
+        }
+
+        private void dboCampo_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            try
+            {
+                dboCriterio.Enabled = true;
+
+                string campo = dboCampo.SelectedItem.ToString();
+
+                switch (campo)
+                {
+                    case "Codigo":
+                    case "Nombre":
+                    case "Descripcion":
+                        break;
+
+                    case "Precio":
+                        break;
+
+                    case "Marca":
+                        MarcaNegocio mNegocio  = new MarcaNegocio();
+                        dboCriterio.DataSource = mNegocio.listar();
+                        break;
+
+                    case "Categoria":
+                        CategoriaNegocio nNegocio = new CategoriaNegocio();
+                        dboCriterio.DataSource = nNegocio.listar();
+                        break;
+
+                    default: 
+                        dboCriterio.DataSource=null;
+                        dboCriterio.Enabled=false;
+                        break;
+                }
+            }
+            catch (Exception)
+            {
+
+                MessageBox.Show("Intentelo mas tarde");
             }
         }
     }

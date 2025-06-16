@@ -36,13 +36,14 @@
             this.btnModificar = new System.Windows.Forms.Button();
             this.btnEliminar = new System.Windows.Forms.Button();
             this.lblCampo = new System.Windows.Forms.Label();
-            this.label2 = new System.Windows.Forms.Label();
+            this.lblCriterio = new System.Windows.Forms.Label();
             this.lblBusqueda = new System.Windows.Forms.Label();
             this.txtBuscar = new System.Windows.Forms.TextBox();
             this.btnBuscar = new System.Windows.Forms.Button();
             this.dboCampo = new System.Windows.Forms.ComboBox();
             this.dboCriterio = new System.Windows.Forms.ComboBox();
             this.chbAvanzado = new System.Windows.Forms.CheckBox();
+            this.btnEliminarFiltros = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.dgvArticulos)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pbxImagen)).BeginInit();
             this.SuspendLayout();
@@ -127,14 +128,14 @@
             this.lblCampo.TabIndex = 4;
             this.lblCampo.Text = "Campo:";
             // 
-            // label2
+            // lblCriterio
             // 
-            this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(11, 196);
-            this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(42, 13);
-            this.label2.TabIndex = 4;
-            this.label2.Text = "Criterio:";
+            this.lblCriterio.AutoSize = true;
+            this.lblCriterio.Location = new System.Drawing.Point(11, 196);
+            this.lblCriterio.Name = "lblCriterio";
+            this.lblCriterio.Size = new System.Drawing.Size(42, 13);
+            this.lblCriterio.TabIndex = 4;
+            this.lblCriterio.Text = "Criterio:";
             // 
             // lblBusqueda
             // 
@@ -154,9 +155,9 @@
             // 
             // btnBuscar
             // 
-            this.btnBuscar.Location = new System.Drawing.Point(73, 251);
+            this.btnBuscar.Location = new System.Drawing.Point(120, 261);
             this.btnBuscar.Name = "btnBuscar";
-            this.btnBuscar.Size = new System.Drawing.Size(121, 21);
+            this.btnBuscar.Size = new System.Drawing.Size(77, 21);
             this.btnBuscar.TabIndex = 1;
             this.btnBuscar.Text = "Buscar";
             this.btnBuscar.UseVisualStyleBackColor = true;
@@ -168,6 +169,7 @@
             this.dboCampo.Name = "dboCampo";
             this.dboCampo.Size = new System.Drawing.Size(121, 21);
             this.dboCampo.TabIndex = 6;
+            this.dboCampo.SelectedIndexChanged += new System.EventHandler(this.dboCampo_SelectedIndexChanged);
             // 
             // dboCriterio
             // 
@@ -186,6 +188,16 @@
             this.chbAvanzado.TabIndex = 7;
             this.chbAvanzado.Text = "Busqueda avanzada";
             this.chbAvanzado.UseVisualStyleBackColor = true;
+            this.chbAvanzado.CheckedChanged += new System.EventHandler(this.chbAvanzado_CheckedChanged);
+            // 
+            // btnEliminarFiltros
+            // 
+            this.btnEliminarFiltros.Location = new System.Drawing.Point(14, 261);
+            this.btnEliminarFiltros.Name = "btnEliminarFiltros";
+            this.btnEliminarFiltros.Size = new System.Drawing.Size(77, 21);
+            this.btnEliminarFiltros.TabIndex = 1;
+            this.btnEliminarFiltros.Text = "Eliminar filtro";
+            this.btnEliminarFiltros.UseVisualStyleBackColor = true;
             // 
             // Catalogo
             // 
@@ -196,12 +208,13 @@
             this.Controls.Add(this.dboCriterio);
             this.Controls.Add(this.dboCampo);
             this.Controls.Add(this.txtBuscar);
-            this.Controls.Add(this.label2);
+            this.Controls.Add(this.lblCriterio);
             this.Controls.Add(this.lblBusqueda);
             this.Controls.Add(this.lblCampo);
             this.Controls.Add(this.btnEliminar);
             this.Controls.Add(this.btnModificar);
             this.Controls.Add(this.btnAgregar);
+            this.Controls.Add(this.btnEliminarFiltros);
             this.Controls.Add(this.btnBuscar);
             this.Controls.Add(this.btnDetalle);
             this.Controls.Add(this.pbxImagen);
@@ -228,12 +241,13 @@
         private System.Windows.Forms.Button btnModificar;
         private System.Windows.Forms.Button btnEliminar;
         private System.Windows.Forms.Label lblCampo;
-        private System.Windows.Forms.Label label2;
+        private System.Windows.Forms.Label lblCriterio;
         private System.Windows.Forms.Label lblBusqueda;
         private System.Windows.Forms.TextBox txtBuscar;
         private System.Windows.Forms.Button btnBuscar;
         private System.Windows.Forms.ComboBox dboCampo;
         private System.Windows.Forms.ComboBox dboCriterio;
         private System.Windows.Forms.CheckBox chbAvanzado;
+        private System.Windows.Forms.Button btnEliminarFiltros;
     }
 }
