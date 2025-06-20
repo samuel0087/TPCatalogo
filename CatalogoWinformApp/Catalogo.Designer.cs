@@ -198,6 +198,7 @@
             this.btnEliminarFiltros.TabIndex = 1;
             this.btnEliminarFiltros.Text = "Eliminar filtro";
             this.btnEliminarFiltros.UseVisualStyleBackColor = true;
+            this.btnEliminarFiltros.Click += new System.EventHandler(this.btnEliminarFiltros_Click);
             // 
             // Catalogo
             // 

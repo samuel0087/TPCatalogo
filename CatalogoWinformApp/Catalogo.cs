@@ -146,6 +146,9 @@ namespace CatalogoWinformApp
 
         private void ocultarCamposBusqueda()
         {
+            dboCampo.Items.Clear();
+            dboCriterio.Items.Clear();
+
             lblCampo.Visible = false;
             dboCampo.Visible = false;
             lblCriterio.Visible = false;
@@ -162,7 +165,7 @@ namespace CatalogoWinformApp
             dboCriterio.Visible = true;
             btnBuscar.Visible = true;
 
-
+            dboCampo.Items.Add("-");
             dboCampo.Items.Add("Codigo");
             dboCampo.Items.Add("Nombre");
             dboCampo.Items.Add("Descripción");
@@ -192,6 +195,8 @@ namespace CatalogoWinformApp
         {
             try
             {
+                dboCriterio.Items.Clear();
+                dboCriterio.DataSource = null;
                 dboCriterio.Enabled = true;
 
                 string campo = dboCampo.SelectedItem.ToString();
@@ -200,10 +205,16 @@ namespace CatalogoWinformApp
                 {
                     case "Codigo":
                     case "Nombre":
-                    case "Descripcion":
+                    case "Descripción":
+                        dboCriterio.Items.Add("Comienza con");
+                        dboCriterio.Items.Add("Termina con");
+                        dboCriterio.Items.Add("Contiene");
                         break;
 
                     case "Precio":
+                        dboCriterio.Items.Add("Mayor que");
+                        dboCriterio.Items.Add("Igual que");
+                        dboCriterio.Items.Add("Menor que");
                         break;
 
                     case "Marca":
@@ -227,6 +238,12 @@ namespace CatalogoWinformApp
 
                 MessageBox.Show("Intentelo mas tarde");
             }
+        }
+
+        private void btnEliminarFiltros_Click(object sender, EventArgs e)
+        {
+            dboCampo.SelectedIndex = 0;
+            txtBuscar.Text = "";
         }
     }
 }
