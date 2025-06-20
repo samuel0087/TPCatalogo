@@ -153,16 +153,19 @@ namespace CatalogoWinformApp
             dboCampo.Visible = false;
             lblCriterio.Visible = false;
             dboCriterio.Visible = false;
+            btnEliminarFiltros.Visible = false;
             btnBuscar.Visible = false;
 
         }
 
         private void mostrarCamposBusqueda()
         {
+            dboCampo.Text = "";
             lblCampo.Visible = true;
             dboCampo.Visible = true;
             lblCriterio.Visible = true;
             dboCriterio.Visible = true;
+            btnEliminarFiltros.Visible = true;
             btnBuscar.Visible = true;
 
             dboCampo.Items.Add("-");
@@ -195,8 +198,9 @@ namespace CatalogoWinformApp
         {
             try
             {
-                dboCriterio.Items.Clear();
                 dboCriterio.DataSource = null;
+                dboCriterio.Items.Clear();
+                dboCriterio.Text = "";
                 dboCriterio.Enabled = true;
 
                 string campo = dboCampo.SelectedItem.ToString();
