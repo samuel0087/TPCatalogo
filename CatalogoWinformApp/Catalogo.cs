@@ -249,5 +249,23 @@ namespace CatalogoWinformApp
             dboCampo.SelectedIndex = 0;
             txtBuscar.Text = "";
         }
+
+        private void btnBuscar_Click(object sender, EventArgs e)
+        {
+            ArticuloNegocio negocio = new ArticuloNegocio();
+            try
+            {
+                string campo = dboCampo.SelectedItem.ToString();
+                string criterio = dboCriterio.SelectedItem.ToString();
+                string filtro = txtBuscar.Text;
+
+                dgvArticulos.DataSource = negocio.filtroAvanzado(campo, criterio, filtro);
+            }
+            catch (Exception)
+            {
+
+                MessageBox.Show("Imposible buscar en este momento, intentelo nuevamente más tarde :)");
+            }
+        }
     }
 }
