@@ -198,11 +198,34 @@ namespace Negocio
 
                     case "Precio":
                         //filtro numerico
+                        query += campo + " ";
+
+                        if(criterio == "Mayor o igual que")
+                        {
+                            query += ">= " + filtro;
+                        }
+                        else if (criterio == "Menor igual que")
+                        {
+                            query += "= " + filtro;
+                        }
+                        else
+                        {
+                            query += "<= " + filtro;
+                        }
                         break;
 
                     case "Categoria":
                     case "Marca":
-                        query += campo + " = " + criterio;
+                        if( campo == "Marca")
+                        {
+                            query += "M.";
+                        }
+                        else
+                        {
+                            query += "C.";
+                        }
+
+                        query += "Descripcion = '" + criterio + "'";
                         break;
                 }
 

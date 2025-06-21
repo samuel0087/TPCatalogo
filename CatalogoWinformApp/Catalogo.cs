@@ -217,9 +217,9 @@ namespace CatalogoWinformApp
                         break;
 
                     case "Precio":
-                        dboCriterio.Items.Add("Mayor que");
+                        dboCriterio.Items.Add("Mayor o igual que");
                         dboCriterio.Items.Add("Igual que");
-                        dboCriterio.Items.Add("Menor que");
+                        dboCriterio.Items.Add("Menor o igual que");
                         break;
 
                     case "Marca":
