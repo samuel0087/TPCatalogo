@@ -202,7 +202,7 @@ namespace Negocio
 
                     case "Categoria":
                     case "Marca":
-                        query += campo + " = " + filtro;
+                        query += campo + " = " + criterio;
                         break;
                 }
 

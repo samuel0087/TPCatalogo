@@ -198,6 +198,7 @@ namespace CatalogoWinformApp
         {
             try
             {
+                txtBuscar.Visible=true;
                 dboCriterio.DataSource = null;
                 dboCriterio.Items.Clear();
                 dboCriterio.Text = "";
@@ -222,11 +223,15 @@ namespace CatalogoWinformApp
                         break;
 
                     case "Marca":
+                        txtBuscar.Visible = false;
+                        txtBuscar.Text = "";
                         MarcaNegocio mNegocio  = new MarcaNegocio();
                         dboCriterio.DataSource = mNegocio.listar();
                         break;
 
                     case "Categoria":
+                        txtBuscar.Visible = false;
+                        txtBuscar.Text = "";
                         CategoriaNegocio nNegocio = new CategoriaNegocio();
                         dboCriterio.DataSource = nNegocio.listar();
                         break;
